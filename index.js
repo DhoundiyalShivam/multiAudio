@@ -8,14 +8,35 @@ function stopSound(){
         sounds.currentTime=0;// to start from the starting
     }
 }
-function playSound(btns){
-btns.addEventListener('click',function(){
-    stopSound();
-    document.getElementById(btns.innerText).play()
-})
+// function playSound(btns){
+// btns.addEventListener('click',function(){
+//     stopSound();
+//     document.getElementById(btns.innerText).play()
+// })
+
+// }
+// for(let i=0;i<btn.length;i++){
+//     let btns = btn[i]
+//     playSound(btns)
+// }
+
+
+buttonAdd = document.getElementById('btns')
+for(let i=0;i<sound.length;i++){
+    let sn = sound[i]
+    playSound(sn)
 
 }
-for(let i=0;i<btn.length;i++){
-    let btns = btn[i]
-    playSound(btns)
+// append approach
+function playSound(sn){
+    let button =document.createElement('button')
+button.classList.add('btn');
+button.innerText=sn
+button.addEventListener('click',function(){
+    stopSound()
+    document.getElementById(sn).play()
+
+})
+const divElement = document.getElementById('btns')
+divElement.appendChild(button);
 }
